@@ -1,0 +1,29 @@
+PING
+INFO server
+
+SET usuario:1001:nome "Joana Silva"
+GET usuario:1001:nome
+HSET usuario:1001 nome "Joana Silva" idade 23 cidade "Maceio"
+HGETALL usuario:1001
+
+RPUSH fila:tarefas "enviar_email" "gerar_relatorio"
+LRANGE fila:tarefas 0 -1
+SADD produto:55:tags "eletronico" "promocao"
+SMEMBERS produto:55:tags
+ZADD ranking:jogo 1500 "jogador1"
+ZADD ranking:jogo 2300 "jogador2"
+ZRANGE ranking:jogo 0 -1 WITHSCORES
+
+SET conta:saldo 500
+SET conta:destino 100
+WATCH conta:saldo
+MULTI
+DECRBY conta:saldo 100
+INCRBY conta:destino 100
+EXEC
+
+BGSAVE
+CONFIG GET appendonly
+
+ACL SETUSER app_readonly on >SenhaForte123 ~produto:* +GET +HGETALL -@dangerous
+ACL LIST

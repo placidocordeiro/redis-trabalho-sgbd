@@ -1,0 +1,4 @@
+evidencias/*.png
+evidencias/*.log
+evidencias/*.txt
+!evidencias/.gitkeep

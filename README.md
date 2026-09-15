@@ -181,33 +181,7 @@ CONFIG GET maxmemory
 CONFIG GET maxmemory-policy
 ```
 
-### 5. Gravação do Vídeo
-
-O arquivo `comandos_video.txt` contém todos os comandos na ordem exata para a gravação do vídeo (máx. 3 minutos). Basta copiar e colar no terminal durante a gravação.
-
-**Estrutura sugerida de tempo:**
-
-| Tempo | Conteúdo |
-|-------|----------|
-| 0:00–0:20 | Abertura: grupo, integrantes, SGBD escolhido |
-| 0:20–0:50 | PING, INFO server, o que é Redis |
-| 0:50–1:30 | Modelo de dados: Strings, Hash, List, Set, Sorted Set |
-| 1:30–2:00 | Transação MULTI/EXEC/WATCH |
-| 2:00–2:30 | Persistência (BGSAVE/AOF) e Segurança (ACL) |
-| 2:30–3:00 | Encerramento: pontos fortes e casos de uso |
-
-### 6. Coletar Evidências
-
-Salve prints e logs na pasta `evidencias/`:
-
-```bash
-# Gravar sessão completa do terminal em log
-script -a evidencias/sessao_redis_cli.log
-# ... executar comandos ...
-# exit
-```
-
-### 7. Encerrar o Ambiente
+### 5. Encerrar o Ambiente
 
 ```bash
 docker compose down
